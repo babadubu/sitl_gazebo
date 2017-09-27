@@ -5,7 +5,7 @@
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
         <inertial>
-          <pose>-0.05 0 0 0 0 0</pose>
+          <pose>-0.06 0 0 0 0 0</pose>
           <mass>1.8</mass>
           <inertia>
             <ixx>0.005</ixx>
@@ -134,7 +134,7 @@
       <!-- collision element comes here (optional)-->
     </link>
 
-    <joint name="left_arm_to_motor" type="fixed">
+    <joint name="left_arm_to_motor" type="revolute">
       <pose>0 0.345 0 0 0 0</pose>
       <child>left_motor</child>
       <parent>left_arm</parent>
@@ -231,7 +231,7 @@
       <!-- collision element comes here (optional)-->
     </link>
 
-    <joint name="right_arm_to_motor" type="fixed">
+    <joint name="right_arm_to_motor" type="revolute">
       <pose>0 0.345 0 0 0 0</pose>
       <child>right_motor</child>
       <parent>right_arm</parent>
@@ -807,7 +807,7 @@
           <joint_name>rotor_tail_joint</joint_name>
         </channel>
 
-        <channel name='right_arm'>
+        <channel name='left_arm'>
           <input_index>6</input_index>
           <input_offset>0</input_offset>
           <input_scaling>2.88</input_scaling>
@@ -834,6 +834,44 @@
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position</joint_control_type>
           <joint_name>base_to_right_arm</joint_name>
+          <joint_control_pid>
+            <p>20</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>-0</iMin>
+            <cmdMax>80</cmdMax>
+            <cmdMin>-80</cmdMin>
+          </joint_control_pid>
+        </channel>
+
+        <channel name='left_motor'>
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.78</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>left_arm_to_motor</joint_name>
+          <joint_control_pid>
+            <p>20</p>
+            <i>0</i>
+            <d>0</d>
+            <iMax>0</iMax>
+            <iMin>-0</iMin>
+            <cmdMax>80</cmdMax>
+            <cmdMin>-80</cmdMin>
+          </joint_control_pid>
+        </channel>
+
+        <channel name='right_motor'>
+          <input_index>7</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>0.78</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position</joint_control_type>
+          <joint_name>right_arm_to_motor</joint_name>
           <joint_control_pid>
             <p>20</p>
             <i>0</i>
