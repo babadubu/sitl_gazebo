@@ -89,11 +89,11 @@
       <!-- collision element comes here (optional)-->
     </link>
 
-    <joint name="base_to_left_arm" type="fixed">
+    <joint name="base_to_left_arm" type="revolute">
       <child>left_arm</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
           <lower>-2.87979326579</lower>
           <upper>2.87979326579</upper>
@@ -117,7 +117,7 @@
             <ixx>0.0006</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.0.0006</iyy>
+            <iyy>0.0006</iyy>
             <iyz>0</iyz>
             <izz>0.0001</izz>
         </inertia>
@@ -662,9 +662,9 @@
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.01</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>750</maxRotVelocity>
+      <timeConstantUp>0.15</timeConstantUp>
+      <timeConstantDown>0.1</timeConstantDown>
+      <maxRotVelocity>1000</maxRotVelocity>
       <motorConstant>5e-05</motorConstant>
       <momentConstant>0.015</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
@@ -680,9 +680,9 @@
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.01</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>750</maxRotVelocity>
+      <timeConstantUp>0.14</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>1000</maxRotVelocity>
       <motorConstant>2.5e-05</motorConstant>
       <momentConstant>0.02</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
@@ -698,9 +698,9 @@
       <jointName>rotor_2_joint</jointName>
       <linkName>rotor_2</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.01</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>750</maxRotVelocity>
+      <timeConstantUp>0.15</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>1000</maxRotVelocity>
       <motorConstant>5e-05</motorConstant>
       <momentConstant>0.015</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
@@ -716,9 +716,9 @@
       <jointName>rotor_3_joint</jointName>
       <linkName>rotor_3</linkName>
       <turningDirection>cw</turningDirection>
-      <timeConstantUp>0.01</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>750</maxRotVelocity>
+      <timeConstantUp>0.14</timeConstantUp>
+      <timeConstantDown>0.10</timeConstantDown>
+      <maxRotVelocity>1000</maxRotVelocity>
       <motorConstant>2.5e-05</motorConstant>
       <momentConstant>0.02</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
@@ -734,11 +734,11 @@
       <jointName>rotor_tail_joint</jointName>
       <linkName>rotor_tail</linkName>
       <turningDirection>ccw</turningDirection>
-      <timeConstantUp>0.01</timeConstantUp>
-      <timeConstantDown>0.025</timeConstantDown>
-      <maxRotVelocity>2000</maxRotVelocity>
+      <timeConstantUp>0.1</timeConstantUp>
+      <timeConstantDown>0.1</timeConstantDown>
+      <maxRotVelocity>1385</maxRotVelocity>
       <motorConstant>6e-06</motorConstant>
-      <momentConstant>0.015</momentConstant>
+      <momentConstant>0.02</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>4</motorNumber>
       <rotorDragCoefficient>0.001</rotorDragCoefficient>
@@ -808,7 +808,7 @@
         </channel>
 
         <channel name='left_arm'>
-          <input_index>6</input_index>
+          <input_index>5</input_index>
           <input_offset>0</input_offset>
           <input_scaling>2.88</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
